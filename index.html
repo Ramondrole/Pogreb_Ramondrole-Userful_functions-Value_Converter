@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramondrole - Конвертер величин</title>
+    <link rel="icon" href="./Ramondrole.webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="converter.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">RAMONDROLE</div>
+        <div class="nav-links">
+            <a href="https://ramondrole.github.io/Pogreb_Ramondrole-About_me/" data-key="about">Обо мне</a>
+            <a href="https://ramondrole.github.io/Pogreb_Ramondrole-Games/" data-key="games">Наши игры</a>
+            <a href="https://ramondrole.github.io/Pogreb_Ramondrole-Userful_functions/" data-key="functions">Полезные функции</a>
+        </div>
+        <div class="language-switcher">
+            <button class="lang-btn" id="langBtn">🌐 RU</button>
+            <ul class="lang-dropdown">
+                <li><a href="#" data-lang="ru">🇷🇺 Русский</a></li>
+                <li><a href="#" data-lang="en">🇺🇸 English</a></li>
+                <li><a href="#" data-lang="de">🇩🇪 Deutsch</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="converter-wrapper">
+        <h1 class="main-title" data-key="title">Ramondrole</h1>
+        
+        <div class="selector" id="selector">
+            <button class="active" data-type="info" data-key="infoTab">Информация</button>
+            <button data-type="temp" data-key="tempTab">Температура</button>
+            <button data-type="energy" data-key="energyTab">Энергия</button>
+            <button data-type="mass" data-key="massTab">Масса</button>
+            <button data-type="area" data-key="areaTab">Площадь</button>
+            <button data-type="power" data-key="powerTab">Мощность</button>
+            <button data-type="length" data-key="lengthTab">Длина</button>
+            <button data-type="volume" data-key="volumeTab">Объём</button>
+            <button data-type="pressure" data-key="pressureTab">Давление</button>
+            <button data-type="time" data-key="timeTab">Время</button>
+            <button data-type="speed" data-key="speedTab">Скорость</button>
+        </div>
+
+        <!-- Информация -->
+        <div class="converter active" id="info">
+            <div class="converter-title" data-key="infoTitle">║ ИНФОРМАЦИЯ ║</div>
+            <div class="input-group">
+                <label data-key="fromLabel">Из:</label>
+                <input type="number" id="infoInput" value="1" step="any">
+                <select id="infoFrom">
+                    <option value="bit">Бит</option>
+                    <option value="byte" selected>Байт</option>
+                    <option value="kb">КБ</option>
+                    <option value="mb">МБ</option>
+                    <option value="gb">ГБ</option>
+                    <option value="tb">ТБ</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label data-key="toLabel">В:</label>
+                <input type="number" id="infoOutput" readonly>
+                <select id="infoTo">
+                    <option value="bit">Бит</option>
+                    <option value="byte">Байт</option>
+                    <option value="kb" selected>КБ</option>
+                    <option value="mb">МБ</option>
+                    <option value="gb">ГБ</option>
+                    <option value="tb">ТБ</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Температура -->
+        <div class="converter" id="temp">
+            <div class="converter-title" data-key="tempTitle">║ ТЕМПЕРАТУРА ║</div>
+            <div class="input-group">
+                <label data-key="fromLabel">Из:</label>
+                <input type="number" id="tempInput" value="0" step="any">
+                <select id="tempFrom">
+                    <option value="c" selected data-key="celsius">Цельсий</option>
+                    <option value="f" data-key="fahrenheit">Фаренгейт</option>
+                    <option value="k" data-key="kelvin">Кельвин</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label data-key="toLabel">В:</label>
+                <input type="number" id="tempOutput" readonly>
+                <select id="tempTo">
+                    <option value="c" data-key="celsius">Цельсий</option>
+                    <option value="f" selected data-key="fahrenheit">Фаренгейт</option>
+                    <option value="k" data-key="kelvin">Кельвин</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Энергия -->
+        <div class="converter" id="energy">
+            <div class="converter-title" data-key="energyTitle">║ ЭНЕРГИЯ ║</div>
+            <div class="input-group">
+                <label data-key="fromLabel">Из:</label>
+                <input type="number" id="energyInput" value="1" step="any">
+                <select id="energyFrom">
+                    <option value="j" selected data-key="joule">Джоуль</option>
+                    <option value="cal" data-key="calorie">Калория</option>
+                    <option value="wh" data-key="wh">Вт·ч</option>
+                    <option value="ev" data-key="ev">эВ</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label data-key="toLabel">В:</label>
+                <input type="number" id="energyOutput" readonly>
+                <select id="energyTo">
+                    <option value="j" data-key="joule">Джоуль</option>
+                    <option value="cal" selected data-key="calorie">Калория</option>
+                    <option value="wh" data-key="wh">Вт·ч</option>
+                    <option value="ev" data-key="ev">эВ</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Масса -->
+        <div class="converter" id="mass">
+            <div class="converter-title" data-key="massTitle">║ МАССА ║</div>
+            <div class="input-group">
+                <label data-key="fromLabel">Из:</label>
+                <input type="number" id="massInput" value="1" step="any">
+                <select id="massFrom">
+                    <option value="kg" selected data-key="kg">Килограмм</option>
+                    <option value="g" data-key="g">Грамм</option>
+                    <option value="mg" data-key="mg">Миллиграмм</option>
+                    <option value="t" data-key="t">Тонна</option>
+                    <option value="lb" data-key="lb">Фунт</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label data-key="toLabel">В:</label>
+                <input type="number" id="massOutput" readonly>
+                <select id="massTo">
+                    <option value="kg" data-key="kg">Килограмм</option>
+                    <option value="g" selected data-key="g">Грамм</option>
+                    <option value="mg" data-key="mg">Миллиграмм</option>
+                    <option value="t" data-key="t">Тонна</option>
+                    <option value="lb" data-key="lb">Фунт</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Площадь -->
+        <div class="converter" id="area">
+            <div class="converter-title" data-key="areaTitle">║ ПЛОЩАДЬ ║</div>
+            <div class="input-group">
+                <label data-key="fromLabel">Из:</label>
+                <input type="number" id="areaInput" value="1" step="any">
+                <select id="areaFrom">
+                    <option value="sqm" selected data-key="sqm">м²</option>
+                    <option value="sqkm" data-key="sqkm">км²</option>
+                    <option value="ha" data-key="ha">Гектар</option>
+                    <option value="acre" data-key="acre">Акр</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label data-key="toLabel">В:</label>
+                <input type="number" id="areaOutput" readonly>
+                <select id="areaTo">
+                    <option value="sqm" data-key="sqm">м²</option>
+                    <option value="sqkm" data-key="sqkm">км²</option>
+                    <option value="ha" selected data-key="ha">Гектар</option>
+                    <option value="acre" data-key="acre">Акр</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Мощность -->
+        <div class="converter" id="power">
+            <div class="converter-title" data-key="powerTitle">║ МОЩНОСТЬ ║</div>
+            <div class="input-group">
+                <label data-key="fromLabel">Из:</label>
+                <input type="number" id="powerInput" value="1" step="any">
+                <select id="powerFrom">
+                    <option value="w" selected data-key="watt">Ватт</option>
+                    <option value="kw" data-key="kw">Киловатт</option>
+                    <option value="hp" data-key="hp">Л.с.</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label data-key="toLabel">В:</label>
+                <input type="number" id="powerOutput" readonly>
+                <select id="powerTo">
+                    <option value="w" data-key="watt">Ватт</option>
+                    <option value="kw" selected data-key="kw">Киловатт</option>
+                    <option value="hp" data-key="hp">Л.с.</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Длина -->
+        <div class="converter" id="length">
+            <div class="converter-title" data-key="lengthTitle">║ ДЛИНА ║</div>
+            <div class="input-group">
+                <label data-key="fromLabel">Из:</label>
+                <input type="number" id="lengthInput" value="1" step="any">
+                <select id="lengthFrom">
+                    <option value="m" selected data-key="meter">Метр</option>
+                    <option value="km" data-key="km">Километр</option>
+                    <option value="cm" data-key="cm">Сантиметр</option>
+                    <option value="mm" data-key="mm">Миллиметр</option>
+                    <option value="mile" data-key="mile">Миля</option>
+                    <option value="yard" data-key="yard">Ярд</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label data-key="toLabel">В:</label>
+                <input type="number" id="lengthOutput" readonly>
+                <select id="lengthTo">
+                    <option value="m" data-key="meter">Метр</option>
+                    <option value="km" data-key="km">Километр</option>
+                    <option value="cm" selected data-key="cm">Сантиметр</option>
+                    <option value="mm" data-key="mm">Миллиметр</option>
+                    <option value="mile" data-key="mile">Миля</option>
+                    <option value="yard" data-key="yard">Ярд</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Объём -->
+        <div class="converter" id="volume">
+            <div class="converter-title" data-key="volumeTitle">║ ОБЪЁМ ║</div>
+            <div class="input-group">
+                <label data-key="fromLabel">Из:</label>
+                <input type="number" id="volumeInput" value="1" step="any">
+                <select id="volumeFrom">
+                    <option value="l" selected data-key="liter">Литр</option>
+                    <option value="ml" data-key="ml">Миллилитр</option>
+                    <option value="m3" data-key="m3">м³</option>
+                    <option value="gal" data-key="gallon">Галлон</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label data-key="toLabel">В:</label>
+                <input type="number" id="volumeOutput" readonly>
+                <select id="volumeTo">
+                    <option value="l" data-key="liter">Литр</option>
+                    <option value="ml" selected data-key="ml">Миллилитр</option>
+                    <option value="m3" data-key="m3">м³</option>
+                    <option value="gal" data-key="gallon">Галлон</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Давление -->
+        <div class="converter" id="pressure">
+            <div class="converter-title" data-key="pressureTitle">║ ДАВЛЕНИЕ ║</div>
+            <div class="input-group">
+                <label data-key="fromLabel">Из:</label>
+                <input type="number" id="pressureInput" value="1" step="any">
+                <select id="pressureFrom">
+                    <option value="pa" selected data-key="pa">Паскаль</option>
+                    <option value="kpa" data-key="kpa">кПа</option>
+                    <option value="bar" data-key="bar">Бар</option>
+                    <option value="atm" data-key="atm">Атм</option>
+                    <option value="mmhg" data-key="mmhg">мм рт.ст.</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label data-key="toLabel">В:</label>
+                <input type="number" id="pressureOutput" readonly>
+                <select id="pressureTo">
+                    <option value="pa" data-key="pa">Паскаль</option>
+                    <option value="kpa" data-key="kpa">кПа</option>
+                    <option value="bar" selected data-key="bar">Бар</option>
+                    <option value="atm" data-key="atm">Атм</option>
+                    <option value="mmhg" data-key="mmhg">мм рт.ст.</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Время -->
+        <div class="converter" id="time">
+            <div class="converter-title" data-key="timeTitle">║ ВРЕМЯ ║</div>
+            <div class="input-group">
+                <label data-key="fromLabel">Из:</label>
+                <input type="number" id="timeInput" value="1" step="any">
+                <select id="timeFrom">
+                    <option value="s" selected data-key="second">Секунда</option>
+                    <option value="min" data-key="minute">Минута</option>
+                    <option value="h" data-key="hour">Час</option>
+                    <option value="d" data-key="day">День</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label data-key="toLabel">В:</label>
+                <input type="number" id="timeOutput" readonly>
+                <select id="timeTo">
+                    <option value="s" data-key="second">Секунда</option>
+                    <option value="min" selected data-key="minute">Минута</option>
+                    <option value="h" data-key="hour">Час</option>
+                    <option value="d" data-key="day">День</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Скорость -->
+        <div class="converter" id="speed">
+            <div class="converter-title" data-key="speedTitle">║ СКОРОСТЬ ║</div>
+            <div class="input-group">
+                <label data-key="fromLabel">Из:</label>
+                <input type="number" id="speedInput" value="1" step="any">
+                <select id="speedFrom">
+                    <option value="ms" selected data-key="ms">м/с</option>
+                    <option value="kmh" data-key="kmh">км/ч</option>
+                    <option value="mph" data-key="mph">миль/ч</option>
+                    <option value="knot" data-key="knot">узел</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label data-key="toLabel">В:</label>
+                <input type="number" id="speedOutput" readonly>
+                <select id="speedTo">
+                    <option value="ms" data-key="ms">м/с</option>
+                    <option value="kmh" selected data-key="kmh">км/ч</option>
+                    <option value="mph" data-key="mph">миль/ч</option>
+                    <option value="knot" data-key="knot">узел</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script src="converter.js"></script>
+</body>
+</html>
