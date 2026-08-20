@@ -1,0 +1,119 @@
+.converter-wrapper {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    background: #141414;
+    border: 1px solid #2a2a2a;
+    border-bottom: 6px solid #b31b1b;
+    padding: 30px;
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.5);
+}
+
+.main-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #ffffff;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    border-bottom: 6px solid #b31b1b;
+    padding-bottom: 15px;
+}
+
+.selector {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #2a2a2a;
+    padding-bottom: 20px;
+}
+
+.selector button {
+    background: #141414;
+    color: #888899;
+    border: 1px solid #2a2a2a;
+    border-left: 3px solid #2a2a2a;
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.5);
+}
+
+.selector button:hover {
+    transform: translate(-1px, -1px);
+}
+
+.selector button.active {
+    border-color: #b31b1b;
+    color: #ffffff;
+    background: rgba(179, 27, 27, 0.15);
+}
+
+.converter {
+    display: none;
+}
+
+.converter.active {
+    display: block;
+}
+
+.converter-title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #b31b1b;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    letter-spacing: 3px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.input-group label {
+    min-width: 70px;
+    font-size: 1.1rem;
+    color: #888899;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+}
+
+.input-group input,
+.input-group select {
+    flex: 1;
+    background: #0a0a0a;
+    border: 1px solid #2a2a2a;
+    border-left: 4px solid #b31b1b;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #b31b1b;
+    box-shadow: 0 0 15px rgba(179, 27, 27, 0.3);
+}
+
+.input-group input[readonly] {
+    color: #00aa44;
+    border-left-color: #00aa44;
+}
+
+@media (max-width: 600px) {
+    .converter-wrapper { padding: 20px; }
+    .main-title { font-size: 1.6rem; }
+    .selector button { font-size: 0.6rem; padding: 5px 10px; }
+    .input-group label { min-width: 50px; font-size: 0.9rem; }
+}
